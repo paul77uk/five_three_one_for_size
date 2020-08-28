@@ -15,7 +15,7 @@ class DayTitleDb {
 
   Future<Database> openDb() async {
     if (db == null) {
-      db = await openDatabase(join(await getDatabasesPath(), 'dayTitle1.db'),
+      db = await openDatabase(join(await getDatabasesPath(), 'dayTitle2.db'),
           onCreate: (database, version) {
         // weekSql.createWeekTitleTable();
         // weekSql.insertBBBWeeks();
@@ -36,12 +36,6 @@ class DayTitleDb {
             'INSERT INTO dayTitle(idWeekTitle, dayNum, currentDay) VALUES(1, "Day 4","false")');
 
         database.rawInsert(
-            'INSERT INTO dayTitle(idWeekTitle, dayNum, currentDay) VALUES(1, "Day 5","false")');
-
-        database.rawInsert(
-            'INSERT INTO dayTitle(idWeekTitle, dayNum, currentDay) VALUES(1, "Day 6","false")');
-
-        database.rawInsert(
             'INSERT INTO dayTitle(idWeekTitle, dayNum, currentDay) VALUES(2, "Day 1","false")');
 
         database.rawInsert(
@@ -54,12 +48,6 @@ class DayTitleDb {
             'INSERT INTO dayTitle(idWeekTitle, dayNum, currentDay) VALUES(2, "Day 4","false")');
 
         database.rawInsert(
-            'INSERT INTO dayTitle(idWeekTitle, dayNum, currentDay) VALUES(2, "Day 5","false")');
-
-        database.rawInsert(
-            'INSERT INTO dayTitle(idWeekTitle, dayNum, currentDay) VALUES(2, "Day 6","false")');
-
-        database.rawInsert(
             'INSERT INTO dayTitle(idWeekTitle, dayNum, currentDay) VALUES(3, "Day 1","false")');
 
         database.rawInsert(
@@ -70,12 +58,6 @@ class DayTitleDb {
 
         database.rawInsert(
             'INSERT INTO dayTitle(idWeekTitle, dayNum, currentDay) VALUES(3, "Day 4","false")');
-
-        database.rawInsert(
-            'INSERT INTO dayTitle(idWeekTitle, dayNum, currentDay) VALUES(3, "Day 5","false")');
-
-        database.rawInsert(
-            'INSERT INTO dayTitle(idWeekTitle, dayNum, currentDay) VALUES(3, "Day 6","false")');
       }, version: version);
     }
     return db;
