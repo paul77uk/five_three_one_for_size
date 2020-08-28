@@ -1,0 +1,58 @@
+class ExerciseGroupData {
+  List<List<dynamic>> bbbWeekOne = [
+    [1, "Warm up"],
+    [1, "531"],
+    [1, "BBB"],
+    [1, "Chin-ups"],
+    [2, "Warm up"],
+    [2, "531"],
+    [2, "BBB"],
+    [2, "Hanging Leg Raise"],
+    [3, "Warm up"],
+    [3, "531"],
+    [3, "BBB"],
+    [3, "Dumbbell Row"],
+    [4, "Warm up"],
+    [4, "531"],
+    [4, "BBB"],
+    [4, "Leg Curl"],
+  ];
+
+  List<List<dynamic>> bbbWeekTwo = [
+    [5, "Warm up"],
+    [5, "531"],
+    [5, "BBB"],
+    [5, "Chin-ups"],
+    [6, "Warm up"],
+    [6, "531"],
+    [6, "BBB"],
+    [6, "Hanging Leg Raise"],
+    [7, "Warm up"],
+    [7, "531"],
+    [7, "BBB"],
+    [7, "Dumbbell Row"],
+    [8, "Warm up"],
+    [8, "531"],
+    [8, "BBB"],
+    [8, "Leg Curl"],
+  ];
+
+  List<List<dynamic>> bbbWeekThree = [
+    [9, "Warm up"],
+    [9, "531"],
+    [9, "BBB"],
+    [9, "Chin-ups"],
+    [10, "Warm up"],
+    [10, "531"],
+    [10, "BBB"],
+    [10, "Hanging Leg Raise"],
+    [11, "Warm up"],
+    [11, "531"],
+    [11, "BBB"],
+    [11, "Dumbbell Row"],
+    [12, "Warm up"],
+    [12, "531"],
+    [12, "BBB"],
+    [12, "Leg Curl"],
+  ];
+}
