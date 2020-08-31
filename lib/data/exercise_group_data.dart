@@ -1,22 +1,28 @@
 class ExerciseGroupData {
-  List<List<dynamic>> bbbWeekOne = [
-    [1, "Warm up"],
-    [1, "531"],
-    [1, "BBB"],
-    [1, "Chin-ups"],
-    [2, "Warm up"],
-    [2, "531"],
-    [2, "BBB"],
-    [2, "Hanging Leg Raise"],
-    [3, "Warm up"],
-    [3, "531"],
-    [3, "BBB"],
-    [3, "Dumbbell Row"],
-    [4, "Warm up"],
-    [4, "531"],
-    [4, "BBB"],
-    [4, "Leg Curl"],
-  ];
+  List<List<dynamic>> bbb(int dayOne, int dayTwo, int dayThree, int dayFour) {
+    return [
+      [dayOne, "Warm up"],
+      [dayOne, "531"],
+      [dayOne, "BBB"],
+      [dayOne, "Chin-ups"],
+      [dayTwo, "Warm up"],
+      [dayTwo, "531"],
+      [dayTwo, "BBB"],
+      [dayTwo, "Hanging Leg Raise"],
+      [dayThree, "Warm up"],
+      [dayThree, "531"],
+      [dayThree, "BBB"],
+      [dayThree, "Dumbbell Row"],
+      [dayFour, "Warm up"],
+      [dayFour, "531"],
+      [dayFour, "BBB"],
+      [dayFour, "Leg Curl"],
+    ];
+  }
+
+  List<List<dynamic>> bbbWeekOne() {
+    return bbb(1, 2, 3, 4);
+  }
 
   List<List<dynamic>> bbbWeekTwo = [
     [5, "Warm up"],

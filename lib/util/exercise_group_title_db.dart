@@ -19,7 +19,7 @@ class ExerciseGroupTitleDb {
   Future<Database> openDb() async {
     if (db == null) {
       db = await openDatabase(
-          join(await getDatabasesPath(), 'exerciseGroupTitle13.db'),
+          join(await getDatabasesPath(), 'exerciseGroupTitle15.db'),
           onCreate: (database, version) {
         // weekSql.createWeekTitleTable();
         // weekSql.insertBBBWeeks();
@@ -27,18 +27,20 @@ class ExerciseGroupTitleDb {
         database.execute(
             'CREATE TABLE exerciseGroupTitle(id INTEGER PRIMARY KEY, idDayTitle INTEGER, exerciseGroupTitle TEXT, currentExerciseGroup TEXT, ' +
                 'FOREIGN KEY(idDayTitle)REFERENCES dayTitle(id))');
-
-        for (var item in exerciseGroupData.bbbWeekOne) {
-          insertIntoExerciseGroup(database, item[0], item[1]);
+        for (int i = 0; i < 12; i++) {
+          for (var item in exerciseGroupData.bbb(i + 1, i + 2, i + 3, i + 4)) {
+            insertIntoExerciseGroup(item[0], item[1]);
+          }
+          i += 3;
         }
 
-        for (var item in exerciseGroupData.bbbWeekTwo) {
-          insertIntoExerciseGroup(database, item[0], item[1]);
-        }
+        // for (var item in exerciseGroupData.bbbWeekTwo) {
+        //   insertIntoExerciseGroup(item[0], item[1]);
+        // }
 
-        for (var item in exerciseGroupData.bbbWeekThree) {
-          insertIntoExerciseGroup(database, item[0], item[1]);
-        }
+        // for (var item in exerciseGroupData.bbbWeekThree) {
+        //   insertIntoExerciseGroup(item[0], item[1]);
+        // }
       }, version: version);
     }
     return db;
@@ -49,7 +51,7 @@ class ExerciseGroupTitleDb {
   //       'INSERT INTO exerciseGroupTitle(idDayTitle, exerciseGroupTitle, currentExerciseGroup) VALUES($value1, $value2,$value3)');
   // }
 
-  void insertIntoExerciseGroup(Database db, int value1, String value2) {
+  void insertIntoExerciseGroup(int value1, String value2) {
     db.rawInsert(
         'INSERT INTO exerciseGroupTitle(idDayTitle, exerciseGroupTitle, currentExerciseGroup) VALUES($value1, "$value2","false")');
   }
