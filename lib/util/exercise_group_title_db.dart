@@ -19,7 +19,7 @@ class ExerciseGroupTitleDb {
   Future<Database> openDb() async {
     if (db == null) {
       db = await openDatabase(
-          join(await getDatabasesPath(), 'exerciseGroupTitle15.db'),
+          join(await getDatabasesPath(), 'exerciseGroupTitle21.db'),
           onCreate: (database, version) {
         // weekSql.createWeekTitleTable();
         // weekSql.insertBBBWeeks();
@@ -29,7 +29,10 @@ class ExerciseGroupTitleDb {
                 'FOREIGN KEY(idDayTitle)REFERENCES dayTitle(id))');
         for (int i = 0; i < 12; i++) {
           for (var item in exerciseGroupData.bbb(i + 1, i + 2, i + 3, i + 4)) {
-            insertIntoExerciseGroup(item[0], item[1]);
+            // insertIntoExerciseGroup(item[0], item[1]);
+            database.rawInsert(
+                'INSERT INTO exerciseGroupTitle(idDayTitle, exerciseGroupTitle, currentExerciseGroup) VALUES(${item[0]}, "${item[1]}","false")');
+            // print('${item[0]}, "${item[1]}"');
           }
           i += 3;
         }
@@ -46,15 +49,10 @@ class ExerciseGroupTitleDb {
     return db;
   }
 
-  // insertIntoTable(value1, value2, value3) {
+  // void insertIntoExerciseGroup(int value1, String value2) {
   //   db.rawInsert(
-  //       'INSERT INTO exerciseGroupTitle(idDayTitle, exerciseGroupTitle, currentExerciseGroup) VALUES($value1, $value2,$value3)');
+  //       'INSERT INTO exerciseGroupTitle(idDayTitle, exerciseGroupTitle, currentExerciseGroup) VALUES($value1, "$value2","false")');
   // }
-
-  void insertIntoExerciseGroup(int value1, String value2) {
-    db.rawInsert(
-        'INSERT INTO exerciseGroupTitle(idDayTitle, exerciseGroupTitle, currentExerciseGroup) VALUES($value1, "$value2","false")');
-  }
 
   Future<int> insertExerciseGroupTitle(
       ExerciseGroupTitleModel exerciseGroupTitleModel) async {
