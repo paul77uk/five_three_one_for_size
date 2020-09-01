@@ -19,7 +19,7 @@ class ExerciseGroupTitleDb {
   Future<Database> openDb() async {
     if (db == null) {
       db = await openDatabase(
-          join(await getDatabasesPath(), 'exerciseGroupTitle21.db'),
+          join(await getDatabasesPath(), 'exerciseGroupTitle22.db'),
           onCreate: (database, version) {
         // weekSql.createWeekTitleTable();
         // weekSql.insertBBBWeeks();
